@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Misi Dari Bapak Season 6</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: white;
+    }
+    header {
+      background: #222;
+      padding: 15px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header a {
+      color: #00bfff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .episode-menu select {
+      padding: 6px 10px;
+      border-radius: 6px;
+      border: none;
+      font-size: 14px;
+    }
+    .comic-page {
+      max-width: 900px;
+      margin: 20px auto;
+      text-align: center;
+      display: none; /* Semua disembunyikan dulu */
+    }
+    .comic-page.active {
+      display: block; /* Episode yang dipilih akan muncul */
+    }
+    .comic-page img {
+      width: 100%;
+      height: auto;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="MDBSTUDIO.html">⬅ Kembali</a>
+    <h2>Season 6 - KING OF BREAD</h2>
+
+    <!-- MENU EPISODE -->
+    <div class="episode-menu">
+      <select id="episodeSelect" onchange="showEpisode()">
+        <option value="ep1">Chapter 1</option>
+        <option value="ep2">Chapter 2</option>
+        <option value="ep3">Chapter 3</option>
+        <option value="ep4">Chapter 4</option>
+        <option value="ep5">Chapter 5</option>
+      </select>
+    </div>
+  </header>
+
+  <!-- EPISODE 1 -->
+  <div class="comic-page active" id="ep1">
+    <h3>Chapter 1 - Pertarungan Langit!</h3>
+    <img src="https://media.discordapp.net/attachments/1376884452294135828/1411668988760424600/CHAPTER_1_PART_1.jpg?ex=68b57eb2&is=68b42d32&hm=a75a6f5f31e3ea6c634384f0e05c1abce2d6c87fb5dd502ba464c83a32f87e75&=&format=webp&width=445&height=544" alt="Halaman 1">
+    <img src="https://media.discordapp.net/attachments/1376884452294135828/1411668989150756874/CHAPTER_1_PART_2.jpg?ex=68b57eb2&is=68b42d32&hm=0f7b0e101a854f42514ad9ef70323a601b8c0e0c07e0597cb0bbcaa12ca5190d&=&format=webp&width=463&height=544" alt="Halaman 2">
+    <img src="https://media.discordapp.net/attachments/1376884452294135828/1411668989532311612/CHAPTER_1_PART_3.jpg?ex=68b57eb2&is=68b42d32&hm=c29c765a8183496e3d4dc2d5b30ed4e616bc0642e38b04dd3e70dde3dadb1542&=&format=webp&width=455&height=543" alt="Halaman 3">
+    <img src="https://media.discordapp.net/attachments/1376884452294135828/1411668989859598456/CHAPTER_1_PART_4.jpg?ex=68b57eb2&is=68b42d32&hm=56def0020c22e9a768a667419bc39803bef3e51253c4f75eecdfcd46e20292f3&=&format=webp&width=466&height=544" alt="Halaman 4">
+  </div>
+
+  <!-- EPISODE 2 -->
+  <div class="comic-page" id="ep2">
+    <h3>Chapter 2 - IMU FACE REVEAL</h3>
+    <img src="https://media.discordapp.net/attachments/1376884452294135828/1411675076763582494/CHAPTER_2_PART_1.jpg?ex=68b5845d&is=68b432dd&hm=60861fea4b6ddca3fa5ce316961b422223dcfaf2184cdb44c8b3a6d40749a013&=&format=webp&width=459&height=544" alt="Halaman 1">
+    <img src="https://media.discordapp.net/attachments/1376884452294135828/1411675077170167892/CHAPTER_2_PART_2.jpg?ex=68b5845e&is=68b432de&hm=38f2d4f15d886ad02600c9329e6f898831292ff56e5b7788c3bd6bfff5031ce9&=&format=webp&width=462&height=544" alt="Halaman 2">
+    <img src="https://media.discordapp.net/attachments/1376884452294135828/1411675077665361982/CHAPTER_2_PART_3.jpg?ex=68b5845e&is=68b432de&hm=f4a56cab517f057d0f98f05c41669485058974e8af456edb8ccfa920b05e8094&=&format=webp&width=450&height=544" alt="Halaman 3">
+    <img src="https://media.discordapp.net/attachments/1376884452294135828/1411675078050971698/CHAPTER_2_PART_4.jpg?ex=68b5845e&is=68b432de&hm=c120724dcbc900270b2f97e7bff8b3537495090de51df07a577d6f424ec9d139&=&format=webp&width=456&height=544" alt="Halaman 4">
+  </div>
+
+  <!-- EPISODE 3 -->
+  <div class="comic-page" id="ep3">
+    <h3>Chapter 3 - Danger!</h3>
+    <img src="https://media.discordapp.net/attachments/1376884452294135828/1411676639330308186/CHAPTER_3_PART_1.jpg?ex=68b585d2&is=68b43452&hm=cf09fec0bd538b75333779b96687bedf455be8b02f3601828c65c5131b8d3d12&=&format=webp&width=454&height=544" alt="Halaman 1">
+    <img src="https://media.discordapp.net/attachments/1376884452294135828/1411676639850659921/CHAPTER_3_PART_2.jpg?ex=68b585d2&is=68b43452&hm=48c61b57f5c053b18ecbb16af046f83db438dcf042db368e28f4ecdbc2dcfe54&=&format=webp&width=457&height=544" alt="Halaman 2">
+    <img src="https://media.discordapp.net/attachments/1376884452294135828/1411676640488198345/CHAPTER_3_PART_3.jpg?ex=68b585d2&is=68b43452&hm=827bf8b9212d9f93b8e4dffbff1170d843dc080072b984df5e1907da0a741401&=&format=webp&width=446&height=544" alt="Halaman 3">
+    <img src="https://media.discordapp.net/attachments/1376884452294135828/1411676640853098496/CHAPTER_3_PART_4.jpg?ex=68b585d2&is=68b43452&hm=06112afd0a0d4b31fdd4d00069c8837dc2cf5df51175b5801e1e7c075e3c90e7&=&format=webp&width=463&height=544" alt="Halaman 4">
+  </div>
+
+    <!-- EPISODE 4 -->
+  <div class="comic-page" id="ep4">
+    <h3>Chapter 4 - Steampunk</h3>
+    <img src="https://media.discordapp.net/attachments/1376884452294135828/1411681454563262525/CHAPTER_4_PART_1.jpg?ex=68b58a4e&is=68b438ce&hm=0a87ce225c062b8c3ec08e93bce3e2a037ff3cf4f1970798934de94e70b74052&=&format=webp&width=452&height=544" alt="Belum Tersedia">
+    <img src="https://media.discordapp.net/attachments/1376884452294135828/1411681455087681578/CHAPTER_4_PART_2.jpg?ex=68b58a4e&is=68b438ce&hm=92c157137b3abc0ced6552664b39d87898ce5cdf483c61c61c85631b79c722ce&=&format=webp&width=459&height=544" alt="Belum Tersedia">
+    <img src="https://media.discordapp.net/attachments/1376884452294135828/1411681455561642084/CHAPTER_4_PART_3.jpg?ex=68b58a4e&is=68b438ce&hm=9d2d7b968136e33dde757c551870ce6c05438f08de25ce1d816f872988f11c42&=&format=webp&width=452&height=544" alt="Belum Tersedia">
+    <img src="https://media.discordapp.net/attachments/1376884452294135828/1411681455918022767/CHAPTER_4_PART_4.jpg?ex=68b58a4e&is=68b438ce&hm=8aef2b37aaebc7657c4f09e15d63007e53c928f9a08ca53428f6a036a8d80347&=&format=webp&width=458&height=544" alt="Belum Tersedia">
+  </div>
+
+      <!-- EPISODE 5 -->
+  <div class="comic-page" id="ep5">
+    <h3>Chapter 5 - EggHead</h3>
+    <img src="Skibidi Toilet" alt="Segera Hadir">
+    <img src="Skibidi Toilet" alt="Segera Hadir">
+    <img src="Skibidi Toilet" alt="Segera Hadir">
+    <img src="Skibidi Toilet" alt="Segera Hadir">
+  </div>
+
+  <script>
+    function showEpisode() {
+      const selected = document.getElementById("episodeSelect").value;
+      const episodes = document.querySelectorAll(".comic-page");
+      
+      episodes.forEach(ep => {
+        ep.classList.remove("active");
+      });
+      
+      document.getElementById(selected).classList.add("active");
+    }
+  </script>
+</body>
+</html>

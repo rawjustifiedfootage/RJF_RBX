@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Misi Dari Bapak Comics</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { font-family: Arial, sans-serif; margin: 0; background: #f4f4f9; }
+    header { background: #222; color: #fff; text-align: center; padding: 22px 16px; }
+    header p { margin: 6px 0 0; opacity: .9; }
+    #searchBar {
+      margin-top: 12px; padding: 10px 12px;
+      width: min(420px, 90%); border-radius: 8px; border: none; font-size: 16px;
+    }
+
+    .container {
+      width: min(1200px, 95%); margin: 24px auto;
+      display: grid; gap: 20px;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    }
+
+    .comic-card {
+      background: #fff; border-radius: 12px; overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,.12);
+      transition: transform .15s ease, box-shadow .15s ease;
+      display: flex; flex-direction: column;
+      height: 400px; /* FIX HEIGHT supaya seragam */
+    }
+    .comic-card:hover { transform: translateY(-2px); box-shadow: 0 6px 14px rgba(0,0,0,.18); }
+
+    .comic-card img {
+      width: 100%; height: 220px; /* FIX COVER HEIGHT */
+      object-fit: cover; display: block;
+    }
+    .comic-card h3 {
+      font-size: 16px; margin: 10px;
+      line-height: 1.25; 
+      height: 40px; /* FIX TITLE HEIGHT */
+      overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+    }
+    .comic-card a {
+      margin: 10px; margin-top: auto;
+      text-align: center; text-decoration: none;
+      background: #007bff; color: #fff;
+      padding: 10px; border-radius: 8px; font-weight: 600;
+    }
+    .comic-card a:hover { background: #0056b3; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Misi Dari Bapak Studio</h1>
+    <p>Koleksi Komik Misi Dari Bapak</p>
+    <input type="text" id="searchBar" placeholder="Cari komik...">
+  </header>
+
+  <div class="container" id="comicContainer">
+    <div class="comic-card">
+      <img src="https://media.discordapp.net/attachments/1376884452294135828/1401910440031817788/20250804192220_001.jpg?ex=68b4ee17&is=68b39c97&hm=ce914b5ec8c4afc6bbd1b178a4c5c02c793ef71cc6e1caca9e6b03324e99870f&=&format=webp&width=477&height=648" alt="Komik 1">
+      <h3>Misi Dari Bapak Season 6</h3>
+      <a href="Season 6.html">Baca Sekarang</a>
+    </div>
+        <div class="comic-card">
+      <img src="https://media.discordapp.net/attachments/1376884452294135828/1403017950482665522/image.png?ex=68b5010a&is=68b3af8a&hm=e05eaefe0da0146b11ed7b8d33de28e230b9304f96482e7112de347cc40516f9&=&format=webp&quality=lossless" alt="Komik 1">
+      <h3>Misi Dari Bapak Season 5</h3>
+      <a href="komik1.html">Mohon Maaf Sedang Perpindahan Data</a>
+    </div>
+        <div class="comic-card">
+      <img src="komik1-cover.jpg" alt="Thumnail Tidak Tersedia">
+      <h3>Misi Dari Bapak Season 4</h3>
+      <a href="komik1.html">Mohon Maaf Sedang Perpindahan Data</a>
+    </div>
+        <div class="comic-card">
+      <img src="komik1-cover.jpg" alt="Thumnail Tidak Tersedia">
+      <h3>Misi Dari Bapak Season 3</h3>
+      <a href="komik1.html">Mohon Maaf Sedang Perpindahan Data</a>
+    </div>
+        <div class="comic-card">
+      <img src="komik1-cover.jpg" alt="Thumnail Tidak Tersedia">
+      <h3>Misi Dari Bapak Season 2</h3>
+      <a href="komik1.html">Mohon Maaf Sedang Perpindahan Data</a>
+    </div>
+
+  <script>
+    const searchBar = document.getElementById('searchBar');
+    const comics = document.querySelectorAll('.comic-card');
+    searchBar.addEventListener('input', e => {
+      const keyword = e.target.value.toLowerCase();
+      comics.forEach(card => {
+        const title = card.querySelector('h3').textContent.toLowerCase();
+        card.style.display = title.includes(keyword) ? '' : 'none';
+      });
+    });
+  </script>
+</body>
+</html>
