@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Training Egg Head S2 By Misteri Sejarah</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: white;
+    }
+    header {
+      background: #222;
+      padding: 15px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header a {
+      color: #00bfff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .episode-menu select {
+      padding: 6px 10px;
+      border-radius: 6px;
+      border: none;
+      font-size: 14px;
+    }
+    .comic-page {
+      max-width: 900px;
+      margin: 20px auto;
+      text-align: center;
+      display: none; /* Semua disembunyikan dulu */
+    }
+    .comic-page.active {
+      display: block; /* Episode yang dipilih akan muncul */
+    }
+    .comic-page img {
+      width: 100%;
+      height: auto;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="MDBSTUDIO.html">⬅ Kembali</a>
+    <h2>Season 2 - Training Egg Head By Misteri Sejarah</h2>
+
+    <!-- MENU EPISODE -->
+    <div class="episode-menu">
+      <select id="episodeSelect" onchange="showEpisode()">
+        <option value="ep1">Chapter 1</option>
+      </select>
+    </div>
+  </header>
+
+  <!-- EPISODE 1 -->
+  <div class="comic-page active" id="ep1">
+    <h3>Chapter 1</h3>
+    <img src="https://media.discordapp.net/attachments/1376884452294135828/1412041549704986725/TE_CHAPTER_1_PART_1.jpg?ex=68b6d9ab&is=68b5882b&hm=bef8a7539c4f65b3a10ffbd1cdd60fe12ab93f395b87b4c2c81f41d82392f947&=&format=webp&width=468&height=544" alt="Halaman 1">
+    <img src="https://media.discordapp.net/attachments/1376884452294135828/1412041550162300928/TE_CHAPTER_1_PART_2.jpg?ex=68b6d9ac&is=68b5882c&hm=46714fe0a54d2b0a1ff1ad8f5c2a460f2b88cff80cdd7f0e0ef0f4d1a3dd3fd9&=&format=webp&width=457&height=544" alt="Halaman 2">
+    <img src="https://media.discordapp.net/attachments/1376884452294135828/1412041550506098831/TE_CHAPTER_1_PART_3.jpg?ex=68b6d9ac&is=68b5882c&hm=7aa90c3bc7a4574b25df24438aecaa13ec163a90eedf4604a1a0b730cf3880b4&=&format=webp&width=449&height=544" alt="Halaman 3">
+    <img src="https://media.discordapp.net/attachments/1376884452294135828/1412041550896304139/TE_CHAPTER_1_PART_4.jpg?ex=68b6d9ac&is=68b5882c&hm=e194850a9ddd353d3d42f3109255098aed7052f3d81960950c5c54ede9302ede&=&format=webp&width=467&height=544" alt="Halaman 4">
+  </div>
+
+
+  <script>
+    function showEpisode() {
+      const selected = document.getElementById("episodeSelect").value;
+      const episodes = document.querySelectorAll(".comic-page");
+      
+      episodes.forEach(ep => {
+        ep.classList.remove("active");
+      });
+      
+      document.getElementById(selected).classList.add("active");
+    }
+  </script>
+</body>
+</html>
