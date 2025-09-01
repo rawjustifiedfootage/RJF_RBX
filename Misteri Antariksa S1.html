@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Misteri Batu Antariksa Season 1 By Antariksa Studio</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: white;
+    }
+    header {
+      background: #222;
+      padding: 15px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header a {
+      color: #00bfff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .episode-menu select {
+      padding: 6px 10px;
+      border-radius: 6px;
+      border: none;
+      font-size: 14px;
+    }
+    .comic-page {
+      max-width: 900px;
+      margin: 20px auto;
+      text-align: center;
+      display: none; /* Semua disembunyikan dulu */
+    }
+    .comic-page.active {
+      display: block; /* Episode yang dipilih akan muncul */
+    }
+    .comic-page img {
+      width: 100%;
+      height: auto;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="MDBSTUDIO.html">⬅ Kembali</a>
+    <h2>Season 1 - Misteri Batu Antariksa By Antariksa Studio</h2>
+
+    <!-- MENU EPISODE -->
+    <div class="episode-menu">
+      <select id="episodeSelect" onchange="showEpisode()">
+        <option value="ep1">Episode 1</option>
+      </select>
+    </div>
+  </header>
+
+  <!-- EPISODE 1 -->
+  <div class="comic-page active" id="ep1">
+    <h3>Episode 1</h3>
+    <img src="https://media.discordapp.net/attachments/1376884452294135828/1412049535525588992/Episode_1_Part_1.jpg?ex=68b6e11b&is=68b58f9b&hm=117f61df089aa2b2f3290fef23350a2ac35b082638df02f4ff47e208cfd177ab&=&format=webp&width=416&height=544" alt="Halaman 1">
+    <img src="https://media.discordapp.net/attachments/1376884452294135828/1412049535978700870/Episode_1_Part_2.jpg?ex=68b6e11b&is=68b58f9b&hm=3d9743dd90617c4397ea19074383412e82fd27357beca16c11056b6f910363b8&=&format=webp&width=408&height=544" alt="Halaman 2">
+    <img src="https://media.discordapp.net/attachments/1376884452294135828/1412049536750456852/Episode_1_Part_3.jpg?ex=68b6e11c&is=68b58f9c&hm=6e9ca23b8855c5cd7f1548753c574f232cc4ca1a5ece2128e3e5fd5c54452dca&=&format=webp&width=407&height=544" alt="Halaman 3">
+    <img src="https://media.discordapp.net/attachments/1376884452294135828/1412049537228345456/Episode_1_Part_4.jpg?ex=68b6e11c&is=68b58f9c&hm=150dc5133a0e1bf43df8f6f72fdeccfa5426e7e7f9ae710402e40cbc591633cd&=&format=webp&width=419&height=544" alt="Halaman 4">
+  </div>
+
+
+  <script>
+    function showEpisode() {
+      const selected = document.getElementById("episodeSelect").value;
+      const episodes = document.querySelectorAll(".comic-page");
+      
+      episodes.forEach(ep => {
+        ep.classList.remove("active");
+      });
+      
+      document.getElementById(selected).classList.add("active");
+    }
+  </script>
+</body>
+</html>
