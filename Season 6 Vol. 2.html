@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Misi Dari Bapak Season 6</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: white;
+    }
+    header {
+      background: #222;
+      padding: 15px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header a {
+      color: #00bfff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .episode-menu select {
+      padding: 6px 10px;
+      border-radius: 6px;
+      border: none;
+      font-size: 14px;
+    }
+    .comic-page {
+      max-width: 900px;
+      margin: 20px auto;
+      text-align: center;
+      display: none; /* Semua disembunyikan dulu */
+    }
+    .comic-page.active {
+      display: block; /* Episode yang dipilih akan muncul */
+    }
+    .comic-page img {
+      width: 100%;
+      height: auto;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="MDBSTUDIO.html">⬅ Kembali</a>
+    <h2>Season 6 Volume 2 - NEW WORLD</h2>
+
+    <!-- MENU EPISODE -->
+    <div class="episode-menu">
+      <select id="episodeSelect" onchange="showEpisode()">
+        <option value="ep13">Chapter 13</option>
+      </select>
+    </div>
+  </header>
+
+  <!-- EPISODE 1 -->
+  <div class="comic-page active" id="ep13">
+    <h3>Chapter 13 - Pertarungan Langit!</h3>
+    <img src="https://media.discordapp.net/attachments/1376884452294135828/1422184458999566447/CHAPTER_13_PART_1.jpg?ex=68dbbffd&is=68da6e7d&hm=731a9eb2e7d27dfc0dc6dfe533b98a045416a216eda9deed13f0ad6d5d627795&=&format=webp&width=430&height=544" alt="Halaman 1">
+    <img src="https://media.discordapp.net/attachments/1376884452294135828/1422184459381243914/CHAPTER_13_PART_2.jpg?ex=68dbbffe&is=68da6e7e&hm=afb9f01b87601467c298e5326fcd9c1224c2d555249033a9288c9a8446c34052&=&format=webp&width=454&height=544" alt="Halaman 2">
+    <img src="https://media.discordapp.net/attachments/1376884452294135828/1422184459842621501/CHAPTER_13_PART_3.jpg?ex=68dbbffe&is=68da6e7e&hm=f5e562d48681e51a41e41acf67a6389f2a7e5e3c8931bf9cf6d6eaf4f44db8a7&=&format=webp&width=448&height=544" alt="Halaman 3">
+    <img src="https://media.discordapp.net/attachments/1376884452294135828/1422184460325093507/CHAPTER_13_PART_4.jpg?ex=68dbbffe&is=68da6e7e&hm=cb7f6f76c59fa2b9b34906bc717a81f35b810ded50d248d35578d9c5f6c03603&=&format=webp&width=468&height=544" alt="Halaman 4">
+  </div>
+ 
+
+  <script>
+    function showEpisode() {
+      const selected = document.getElementById("episodeSelect").value;
+      const episodes = document.querySelectorAll(".comic-page");
+      
+      episodes.forEach(ep => {
+        ep.classList.remove("active");
+      });
+      
+      document.getElementById(selected).classList.add("active");
+    }
+  </script>
+</body>
+</html>
