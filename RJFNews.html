@@ -1,274 +1,358 @@
+# RJF News Modern Version (GitHub Pages Friendly)
+
+```html
 <!DOCTYPE html>
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>RJF NEWS</title>
-  <link rel="stylesheet" href="styles.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RJF News</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
-    /* Jika tidak pakai CSS eksternal, bisa langsung pakai ini */
-    .news-card {
-      margin-bottom: 20px;
-      border: 1px solid #ccc;
-      padding: 10px;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
-    img {
-      max-width: 100%;
-      width: 300px;
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #0f0f0f;
+      color: white;
+      line-height: 1.6;
+    }
+
+    a {
+      color: #7dd3fc;
+      text-decoration: none;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(15,15,15,0.9);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      padding: 20px;
+    }
+
+    .header-container {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-size: 2rem;
+      font-weight: 700;
+      background: linear-gradient(90deg, #38bdf8, #818cf8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .search-box {
+      flex: 1;
+      min-width: 250px;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 12px 16px;
+      border-radius: 12px;
+      border: none;
+      background: #1a1a1a;
+      color: white;
+      outline: none;
+      font-size: 1rem;
+    }
+
+    .hero {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .hero-card {
+      position: relative;
+      border-radius: 24px;
+      overflow: hidden;
+      min-height: 400px;
+      display: flex;
+      align-items: end;
+      background: #1a1a1a;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+    }
+
+    .hero-card img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.45;
+    }
+
+    .hero-content {
+      position: relative;
+      padding: 40px;
+      z-index: 2;
+    }
+
+    .hero-content h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+
+    .hero-content p {
+      max-width: 700px;
+      color: #d1d5db;
+    }
+
+    .news-section {
+      max-width: 1200px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+    }
+
+    .news-card {
+      background: #171717;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.08);
+      transition: 0.25s ease;
+    }
+
+    .news-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(125,211,252,0.4);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    }
+
+    .news-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      background: #222;
+    }
+
+    .news-content {
+      padding: 20px;
+    }
+
+    .news-date {
+      font-size: 0.85rem;
+      color: #9ca3af;
+      margin-bottom: 10px;
+    }
+
+    .news-content h2 {
+      margin-bottom: 12px;
+      font-size: 1.3rem;
+    }
+
+    .news-content p {
+      color: #d1d5db;
+      font-size: 0.95rem;
+    }
+
+    .tag {
+      display: inline-block;
+      margin-bottom: 12px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(56,189,248,0.15);
+      color: #7dd3fc;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      color: #9ca3af;
+      margin-top: 40px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .empty-message {
+      display: none;
+      text-align: center;
+      margin-top: 30px;
+      color: #9ca3af;
+      font-size: 1.1rem;
+    }
+
+    @media (max-width: 768px) {
+      .hero-content h1 {
+        font-size: 2rem;
+      }
+
+      .hero-content {
+        padding: 25px;
+      }
     }
   </style>
 </head>
 <body>
+
   <header>
-    <h1>RJF NEWS</h1>
-    <input type="text" id="search" placeholder="Cari berita..." />
+    <div class="header-container">
+      <div class="logo">RJF NEWS</div>
+
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Cari berita, drama, komik, atau kekacauan internet...">
+      </div>
+    </div>
   </header>
 
-  <main id="news-container">
+  <section class="hero">
+    <div class="hero-card">
+      <img src="https://cdn.discordapp.com/attachments/1376884452294135828/1401910440031817788/20250804192220_001.jpg" alt="Hero">
 
-    <!-- Berita 1 -->
-    <div class="news-card">
-     <img src="https://cdn.discordapp.com/attachments/1376884452294135828/1401910440031817788/20250804192220_001.jpg?ex=6891fe57&is=6890acd7&hm=8bd63a7e0d835f91b0fed002342360e0b5fe5fcfd7e17084aacebf69ea43bdcc&" />
-      <div class="news-content">
-        <h2>Misi Dari Bapak Season 6</h2>
-        <p class="tanggal">Upload: 4 Agustus 2025</p>
-        <p>MDB Studio kembali lagi mengeluarkan komik baru nya yaitu "Misi Dari Bapak S6" dengan judul "KING of BREAD" di dalam komik ini diceritakan sebuah karakter powerfull bernama "Bread" yang menjadi pemeran aksi utama di komik ini</p>
+      <div class="hero-content">
+        <div class="tag">FEATURED NEWS</div>
+        <h1>Misi Dari Bapak Season 6</h1>
+        <p>
+          MDB Studio kembali menghadirkan chapter baru dengan karakter misterius bernama Bread.
+          Karena setiap cinematic universe sekarang wajib punya karakter overpower. Hukum internet modern.
+        </p>
       </div>
     </div>
+  </section>
 
-    <!-- Berita 2 -->
-    <div class="news-card">
-      <img src="https://media.discordapp.net/attachments/1376884452294135828/1401914019647848558/M_20250415_204755_0000.png?ex=689201ac&is=6890b02c&hm=efae8883f6cf3a060ef309f35a70b347d13b7643dacbe326783c91a24b44767a&=&format=webp&quality=lossless" alt="Berita 2" class="news-img" />
-      <div class="news-content">
-        <h2>Welcome To RJF News!</h2>
-        <p class="tanggal">Upload: 2 Agustus 2025</p>
-        <p>ini adalah website dimana tim RJF akan memberi info lanjutan tentang Komik Misi Dari Bapak, Antariksa Studio, dan Misteri Sejarah!.</p>
+  <section class="news-section">
+    <h2 class="section-title">Berita Terbaru</h2>
+
+    <div class="news-grid" id="newsContainer">
+
+      <div class="news-card">
+        <img src="https://cdn.discordapp.com/attachments/1376884452294135828/1401910440031817788/20250804192220_001.jpg" alt="MDB S6">
+
+        <div class="news-content">
+          <div class="tag">KOMIK</div>
+          <div class="news-date">4 Agustus 2025</div>
+          <h2>Misi Dari Bapak Season 6</h2>
+          <p>
+            MDB Studio kembali lagi mengeluarkan komik baru yaitu Misi Dari Bapak S6 dengan judul KING of BREAD.
+          </p>
+        </div>
       </div>
-    </div>
 
-    <!-- Berita 3 -->
-    <div class="news-card">
-      <img src="https://media.discordapp.net/attachments/1376884452294135828/1401914019647848558/M_20250415_204755_0000.png?ex=689201ac&is=6890b02c&hm=efae8883f6cf3a060ef309f35a70b347d13b7643dacbe326783c91a24b44767a&=&format=webp&quality=lossless" alt="Berita 2" class="news-img" />
-      <div class="news-content">
-        <h2>Collaboration!</h2>
-        <p class="tanggal">Upload: 4 Agustus 2025</p>
-        <p>MDB juga mengeluarkan animasi spesial untuk season 7 dan juga MDB melakukan kolaborasi antara MS(Misteri Sejarah) dan Antariksa Studio.</p>
+      <div class="news-card">
+        <img src="https://media.discordapp.net/attachments/1376884452294135828/1401914019647848558/M_20250415_204755_0000.png" alt="RJF">
+
+        <div class="news-content">
+          <div class="tag">RJF</div>
+          <div class="news-date">2 Agustus 2025</div>
+          <h2>Welcome To RJF News!</h2>
+          <p>
+            Tempat tim RJF berbagi info tentang MDB, Antariksa Studio, Misteri Sejarah, dan kekacauan kreatif lainnya.
+          </p>
+        </div>
       </div>
-    </div>
 
-        <!-- Berita 4 -->
-    <div class="news-card">
-      <img src="https://media.discordapp.net/attachments/1376884452294135828/1401922617685839944/RJF_20250727_153309_0000.png?ex=689209ae&is=6890b82e&hm=2bdce55be7caa90f8b55c6fd22dbd9b01ef3328a372cc22c62ffd3112784cf42&=&format=webp&quality=lossless" alt="Berita 2" class="news-img" />
-      <div class="news-content">
-        <h2>RJF Studio</h2>
-        <p class="tanggal">Upload: 4 Agustus 2025</p>
-        <p>Website ini dibuat oleh tim RJF Studio</p>
+      <div class="news-card">
+        <img src="https://static.beebom.com/wp-content/uploads/2025/08/admin-abuse-war-grow-a-garden-vs-steal-a-brainrot.jpg?w=1200&quality=75" alt="Grow a Garden">
+
+        <div class="news-content">
+          <div class="tag">ROBLOX</div>
+          <div class="news-date">24 Agustus 2025</div>
+          <h2>Grow a Garden VS Steal a Brainrot</h2>
+          <p>
+            Event admin war Roblox yang penuh blackhole, chaos, dan komunitas yang terlalu semangat.
+          </p>
+        </div>
       </div>
-    </div>
 
-            <!-- Berita 5 -->
-    <div class="news-card">
-      <img src="no image" alt="Berita 5" class="news-img" />
-      <div class="news-content">
-        <h2>Misi Dari Bapak Season 6, Chapter 1 Is Out</h2>
-        <p class="tanggal">Upload: 4 Agustus 2025</p>
-        <p>Chapter 1 dari misi dari bapak season 6 telah keluar di MDB Gold!</p>
+      <div class="news-card">
+        <img src="https://media.discordapp.net/attachments/1376884452294135828/1402648651762892810/IMG-20250805-WA0025.jpg" alt="Antariksa Studio">
+
+        <div class="news-content">
+          <div class="tag">STUDIO</div>
+          <div class="news-date">6 Agustus 2025</div>
+          <h2>Antariksa Studio</h2>
+          <p>
+            Komik tentang 3 sekawan dan alat super misterius. Karena anak muda tidak pernah bisa hidup normal.
+          </p>
+        </div>
       </div>
+
     </div>
 
-                <!-- Berita 6 -->
-    <div class="news-card">
-      <img src="no image" alt="Berita 6" class="news-img" />
-      <div class="news-content">
-        <h2>Misi Dari Bapak Season 6, Chapter 2 Is Out</h2>
-        <p class="tanggal">Upload: 5 Agustus 2025</p>
-        <p>Chapter 2 dari misi dari bapak season 6 telah keluar di MDB Gold!</p>
-      </div>
+    <div class="empty-message" id="emptyMessage">
+      Tidak ada berita ditemukan. Mungkin admin lagi gabut.
     </div>
-
-                    <!-- Berita 7 -->
-    <div class="news-card">
-      <img src="https://media.discordapp.net/attachments/1376884452294135828/1403017950482665522/image.png?ex=689605ca&is=6894b44a&hm=8d4e8e2c53e9aefcb27ff4d36ed1913f0cdbfee6e2c52085ee7828f1609f3477&=&format=webp&quality=lossless" alt="Berita 7" class="news-img" />
-      <div class="news-content">
-        <h2>Misi Dari Bapak Season 5</h2>
-        <p class="tanggal">Upload: 6 Agustus 2025</p>
-        <p>Misi Dari Bapak S5 akan segera datang di Saluran Misi Dari Bapak!</p>
-      </div>
-    </div>
-
-                        <!-- Berita 8 -->
-    <div class="news-card">
-      <img src="no image" alt="Berita 8" class="news-img" />
-      <div class="news-content">
-        <h2>Misi Dari Bapak Season 6, Chapter 3 Is Out</h2>
-        <p class="tanggal">Upload: 6 Agustus 2025</p>
-        <p>Chapter 3 dari misi dari bapak season 6 telah keluar di MDB Gold!</p>
-      </div>
-    </div>
-
-                            <!-- Berita 9 -->
-    <div class="news-card">
-      <img src="https://cdn.discordapp.com/attachments/1376884452294135828/1402648651762892810/IMG-20250805-WA0025.jpg?ex=6894adda&is=68935c5a&hm=a20c0a6858b45e0ce7e00b6b4503bb3f8f9d44b4456d5faef3676fee0d2250d5&" alt="Berita 2" class="news-img" />
-      <div class="news-content">
-        <h2>Antariksa Studio</h2>
-        <p class="tanggal">Upload: 6 Agustus 2025</p>
-        <p>Antariksa studio adalah studio komik tentang 3 sekawan yang menemukan 3 buah alat super, yang asalnya belum diketahui Dan mereka sekarang sedang mencari tau asal usul dari alat yang mereka jumpai. Komik ini dibuat oleh Faizullah Khairul Hady Wiharja</p>
-      </div>
-    </div>
-
-                                <!-- Berita 10 -->
-    <div class="news-card">
-      <img src="no image" alt="Berita 10" class="news-img" />
-      <div class="news-content">
-        <h2>Admin gabut</h2>
-        <p class="tanggal">Upload: 7 Agustus 2025</p>
-        <p>gatau dah mau liput apa, gueh gabut</p>
-      </div>
-    </div>
-
-                            <!-- Berita 11 -->
-    <div class="news-card">
-      <img src="no image" alt="Berita 11" class="news-img" />
-      <div class="news-content">
-        <h2>Misi Dari Bapak Season 6, Chapter 4 Is Out</h2>
-        <p class="tanggal">Upload: 7 Agustus 2025</p>
-        <p>Chapter 4 dari misi dari bapak season 6 telah keluar di MDB Gold!</p>
-      </div>
-    </div>
-
-                                <!-- Berita 12 -->
-    <div class="news-card">
-      <img src="no image" alt="Berita 12" class="news-img" />
-      <div class="news-content">
-        <h2>Misi Dari Bapak Season 6, Chapter 5 Info</h2>
-        <p class="tanggal">Upload: 7 Agustus 2025</p>
-        <p>untuk chapter 5 mungkin tidak keluar minggu ini dan mungkin akan keluar minggu depan karna pembuat komiknya sedang berusaha semaksimal mungkin untuk membuat kualitas komik menjadi semakin bagus dari yang biasanya.</p>
-      </div>
-    </div>
-    
-                                <!-- Berita 13 -->
-    <div class="news-card">
-  <img src="URL_GAMBAR" alt="Judul Berita" />
-  <div class="news-content">
-    <h2>Update RJF News V 2</h2>
-    <p class="tanggal">Upload: 10 Agustus 2025</p>
-    <p>Ditambahkan fitur baru yaitu source untuk mencari tau sumber dari berita yang di sampaikan.</p>
-    <p><strong>Source:</strong> <a href="https://rawjustifiedfootage.github.io/RJF_RBX/SocialMedia.html" target="_blank">rawjustifiedfootage.com</a></p>
-  </div>
-</div>
-
-                                    <!-- Berita 14 -->
-    <div class="news-card">
-  <img src="URL_GAMBAR" alt="Judul Berita" />
-  <div class="news-content">
-    <h2>Rate Our Studio!</h2>
-    <p class="tanggal">Upload: 10 Agustus 2025</p>
-    <p>Silahkan Rate Komik kami di link dibawah!</p>
-    <p><strong>Link:</strong> <a href="https://forms.gle/V9CcPeMJB2RXKRxF8" target="_blank">RATE OUR COMIC HERE!</a></p>
-  </div>
-</div>
-
-                                <!-- Berita 15 -->
-    <div class="news-card">
-      <img src="no image" alt="Berita 11" class="news-img" />
-      <div class="news-content">
-        <h2>Misi Dari Bapak Season 6, Chapter 5 Is Out!!</h2>
-        <p class="tanggal">Upload: 13 Agustus 2025</p>
-        <p>CHAPTER 5 AKAN KELUAR MALAM INI DI MDB GOLD!</p>
-      </div>
-    </div>
-
-                                        <!-- Berita 16 -->
-    <div class="news-card">
-  <img src="https://static.beebom.com/wp-content/uploads/2025/08/admin-abuse-war-grow-a-garden-vs-steal-a-brainrot.jpg?w=1200&quality=75" alt="Grow a Garden VS Steal a Brainrot" />
-  <div class="news-content">
-    <h2>Grow a Garden VS Steal a Brainrot</h2>
-    <p class="tanggal">Upload: 24 Agustus 2025</p>
-    <p>Admin War: Grow a Garden (Jandel) kalahkan Steal a Brainrot (Sammy)
-Pada malam 23 Agustus 2025, Grow a Garden dan Steal a Brainrot beradu kekuatan dalam Admin Abuse War di Roblox. Jandel ("Grow a Garden") mengalahkan Sammy ("Steal a Brainrot") dengan jurus Blackhole yang spektakuler. Sebagai imbalan, pemain mendapat benih langka, mutasi baru, dan pets eksklusif. Green Bean army berjaya juara!
-— Epic, kreatif, dan penuh kejutan. Komunitas sudah gegap gempita tentang event lanjutan selanjutnya!</p>
-    <p><strong>Link:</strong> <a href="https://beebom.com/poll-who-will-win-admin-abuse-war-grow-a-garden-vs-steal-a-brainrot/" target="_blank">beebom.com</a></p>
-  </div>
-</div>
-
-                                    <!-- Berita 17 -->
-    <div class="news-card">
-      <img src="no image" alt="Berita 11" class="news-img" />
-      <div class="news-content">
-        <h2>Misi Dari Bapak Season 6, Chapter 6 Is Out!!</h2>
-        <p class="tanggal">Upload: 27 Agustus 2025</p>
-        <p>CHAPTER 6 AKAN KELUAR MALAM INI DI MDB GOLD!</p>
-      </div>
-    </div>
-
-                                        <!-- Berita 18 -->
-    <div class="news-card">
-  <img src="" alt="Tidak Ditemukan" />
-  <div class="news-content">
-    <h2>Website Misi Dari Bapak Studio!</h2>
-    <p class="tanggal">Upload: 31 Agustus 2025</p>
-    <p>Misi Dari Bapak Studio membuat sebuah website baru untuk mempublikasikan komik buatan MDB di website, agar pembaca MDB saat ingin membaca ulang bisa dicari di Website ini.</p>
-    <p><strong>Website Disini:</strong> <a href="https://rawjustifiedfootage.github.io/RJF_RBX/MDBSTUDIO.html" target="_blank">mdbstudio.org</a></p>
-  </div>
-</div>
-
-    <div class="news-card">
-  <img src="" alt="Tidak Ditemukan" />
-  <div class="news-content">
-    <h2>FUN FACT of Misi Dari Bapak</h2>
-    <p class="tanggal">Upload: 7 September 2025</p>
-    <p>🇮🇩 FUN FACT HARI INI
-Ada 3 nama di series Misi Dari Bapak yang tidak boleh dituliskan dalam huruf kecil, dari ke-3 itu salah satunya IMU, WHYMAN, dan MIU karna nama tersebut merupakan nama pendahulu contoh lain nya juga seperti MOTHERFLAME dan FATHERFLAME.
-
-🇬🇧 FUN FACT OF THE DAY
-In the series "Mission From The Father," there are three names that must not be written in lowercase letters: IMU, WHYMAN, and MIU, as these names are derived from the names of predecessors. Other examples include MOTHERFLAME and FATHERFLAME, which also follow this convention..</p>
-    <p><strong>Website Disini:</strong> <a href="https://rawjustifiedfootage.github.io/RJF_RBX/MDBSTUDIO.html" target="_blank">mdbstudio.org</a></p>
-  </div>
-    </div>
-    
-  </main>
+  </section>
 
   <footer>
-    © RAW JUSTIFIED FOOTAGE
+    © RAW JUSTIFIED FOOTAGE • RJF STUDIO
   </footer>
 
   <script>
-    const searchInput = document.getElementById("search");
-    const newsCards = document.querySelectorAll(".news-card");
+    const searchInput = document.getElementById('searchInput');
+    const newsCards = document.querySelectorAll('.news-card');
+    const emptyMessage = document.getElementById('emptyMessage');
 
-    searchInput.addEventListener("input", () => {
+    searchInput.addEventListener('input', () => {
       const keyword = searchInput.value.toLowerCase();
+      let visibleCards = 0;
 
       newsCards.forEach(card => {
-        const content = card.textContent.toLowerCase();
-        card.style.display = content.includes(keyword) ? "block" : "none";
+        const text = card.textContent.toLowerCase();
+
+        if(text.includes(keyword)) {
+          card.style.display = 'block';
+          visibleCards++;
+        } else {
+          card.style.display = 'none';
+        }
       });
+
+      emptyMessage.style.display = visibleCards === 0 ? 'block' : 'none';
     });
   </script>
+
 </body>
 </html>
+```
 
+## Cara Pakai
 
+1. Buka repository GitHub Pages kamu.
+2. Ganti isi `index.html` dengan kode di atas.
+3. Commit.
+4. Refresh website.
+5. Rasakan glow up digital yang terlambat beberapa tahun.
 
+## Saran Penting
 
+* Jangan pakai link gambar Discord untuk jangka panjang.
+* Simpan gambar di folder `/images` dalam repository.
+* Pisahkan nanti jadi:
 
+  * `index.html`
+  * `style.css`
+  * `script.js`
+* Kalau sudah lebih jago, pindah ke React atau Astro.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Tapi untuk website static GitHub Pages? Ini sudah jauh lebih modern daripada kebanyakan proyek sekolah yang background-nya galaxy.gif dan musik autoplay Naruto.
